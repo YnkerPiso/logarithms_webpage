@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Լոգարիթմներ — log, lg, ln</title>
+  <meta name="description" content="Գեղեցիկ ինտերակտիվ էջ log, lg, ln լոգարիթմների համար՝ բանաձևերով, օրինակներով, հաշվիչով և քարտերի խաղով։" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Գլխավոր էջ">
+        <span class="brand-mark">log</span>
+        <span class="brand-text">
+          <strong>Լոգարիթմներ</strong>
+          <small>log • lg • ln • cards</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Էջի բաժիններ">
+        <a href="#meaning">Իմաստը</a>
+        <a href="#types">Տեսակներ</a>
+        <a href="#formulas">Բանաձևեր</a>
+        <a href="#equations">Հավասարումներ</a>
+        <a href="#calculator">Հաշվիչ</a>
+        <a href="#game">Խաղ</a>
+        <a href="#stats">Վիճակագրություն</a>
+      </nav>
+
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Փոխել գույնի ռեժիմը">☀</button>
+    </header>
+
+    <main>
+      <section id="home" class="hero-section">
+        <div class="hero-grid">
+          <div class="hero-card intro-card">
+            <p class="eyebrow">Մաթեմատիկայի արագ ուղեցույց</p>
+            <h1>Ամեն ինչ log, lg, ln լոգարիթմների մասին</h1>
+            <p class="hero-text">
+              Լոգարիթմը պատասխանում է հարցին․ <strong>ինչ աստիճանի</strong> պետք է բարձրացնել հիմքը, որպեսզի ստանանք տրված թիվը։ Այս էջում կա բացատրություն, լրիվ բանաձևերի բանկ, հաշվիչ և քարտերի խաղ՝ բանաձևերը հիշելու համար։
+            </p>
+            <div class="hero-actions">
+              <a class="primary-btn" href="#formulas">Տեսնել 20 բանաձևերը</a>
+              <a class="ghost-btn" href="#game">Խաղալ քարտերով</a>
+              <a class="ghost-btn" href="#calculator">Բացել հաշվիչը</a>
+            </div>
+          </div>
+
+          <aside class="hero-card quick-card" aria-label="Արագ միտք">
+            <p class="eyebrow">Արագ միտք</p>
+            <div class="definition-box">
+              <span>Եթե</span>
+              <strong>a<sup>y</sup> = x</strong>
+              <span>ապա</span>
+              <strong>log<sub>a</sub>x = y</strong>
+            </div>
+            <ul class="mini-list">
+              <li><strong>log<sub>2</sub>8 = 3</strong>, որովհետև 2<sup>3</sup> = 8։</li>
+              <li><strong>ln e = 1</strong>, որովհետև e<sup>1</sup> = e։</li>
+              <li><strong>lg 1000 = 3</strong>, որովհետև 10<sup>3</sup> = 1000։</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="meaning" class="content-card numbered-card">
+        <span class="section-number">01</span>
+        <div class="section-head">
+          <p class="eyebrow">Հիմունք</p>
+          <h2>Ի՞նչ է լոգարիթմը</h2>
+          <p>Լոգարիթմը աստիճանացույց է։ Այն ցույց է տալիս՝ հիմքը քանիերորդ աստիճան պետք է բարձրացնել։</p>
+        </div>
+
+        <div class="split-grid">
+          <article class="info-panel">
+            <h3>Սահմանում</h3>
+            <div class="big-formula">log<sub>a</sub>x = y ⇔ a<sup>y</sup> = x</div>
+            <p>Այստեղ <strong>a</strong>-ն հիմքն է, <strong>x</strong>-ը լոգարիթմվող թիվը, իսկ <strong>y</strong>-ը արդյունքն է։</p>
+          </article>
+
+          <article class="info-panel accent-panel">
+            <h3>Պայմաններ</h3>
+            <ul class="check-list">
+              <li>x &gt; 0 — լոգարիթմվող թիվը պետք է դրական լինի։</li>
+              <li>a &gt; 0 — հիմքը պետք է դրական լինի։</li>
+              <li>a ≠ 1 — հիմքը չի կարող լինել 1։</li>
+            </ul>
+            <p class="muted">Եթե հիմքը 1 լինի, ապա 1<sup>y</sup> միշտ 1 է, այսինքն տարբեր արդյունքներ չեն ստացվում։</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="types" class="content-card numbered-card">
+        <span class="section-number">02</span>
+        <div class="section-head">
+          <p class="eyebrow">Տարբերություններ</p>
+          <h2>log, lg, ln</h2>
+          <p>Նշանակումը կախված է հիմքից։ Ամենաշատ օգտագործվողներն են 10-ը և e-ն։</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Նշանակում</th>
+                <th>Կարդացվում է</th>
+                <th>Հիմք</th>
+                <th>Օրինակ</th>
+                <th>Նշում</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>log<sub>a</sub>x</td>
+                <td>լոգարիթմ հիմքով a</td>
+                <td>a</td>
+                <td>log<sub>2</sub>8 = 3</td>
+                <td>ընդհանուր տեսք</td>
+              </tr>
+              <tr>
+                <td>lg x</td>
+                <td>տասնորդական լոգարիթմ</td>
+                <td>10</td>
+                <td>lg 100 = 2</td>
+                <td>lg x = log<sub>10</sub>x</td>
+              </tr>
+              <tr>
+                <td>ln x</td>
+                <td>բնական լոգարիթմ</td>
+                <td>e ≈ 2.71828</td>
+                <td>ln e = 1</td>
+                <td>ln x = log<sub>e</sub>x</td>
+              </tr>
+              <tr>
+                <td>log x</td>
+                <td>կախված է պայմանից</td>
+                <td>հաճախ 10</td>
+                <td>log 1000 = 3</td>
+                <td>դպրոցում հաճախ նույնն է, ինչ lg</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note-bar">Քննության մեջ ուշադիր եղիր․ եթե գրված է <strong>lg</strong>, հիմքը հաստատ 10 է։ Եթե գրված է <strong>ln</strong>, հիմքը հաստատ e է։</div>
+      </section>
+
+      <section id="formulas" class="content-card numbered-card formulas-section">
+        <span class="section-number">03</span>
+        <div class="section-head with-action">
+          <div>
+            <p class="eyebrow">Բանաձևերի բանկ</p>
+            <h2>20 կարևոր բանաձև</h2>
+            <p>Սրանք նույն բանաձևերն են, որոնք օգտագործվում են քարտերի խաղում։ Ամեն քարտի մի կողմը ձախ մասն է, մյուս կողմը՝ աջ մասը։</p>
+          </div>
+          <button id="copyAllFormulas" class="ghost-btn" type="button">Copy բոլորը</button>
+        </div>
+
+        <div class="conditions-strip">
+          <strong>Ընդհանուր պայմաններ․</strong>
+          <span>a &gt; 0, a ≠ 1, b &gt; 0, b ≠ 1, x &gt; 0, y &gt; 0</span>
+        </div>
+
+        <div class="formula-toolbar" aria-label="Բանաձևերի ֆիլտր">
+          <button class="filter-btn is-active" type="button" data-category="all">Բոլորը</button>
+          <button class="filter-btn" type="button" data-category="basic">Հիմունք</button>
+          <button class="filter-btn" type="button" data-category="rules">Կանոններ</button>
+          <button class="filter-btn" type="button" data-category="base">Հիմքի փոխում</button>
+          <button class="filter-btn" type="button" data-category="mixed">Խառը</button>
+        </div>
+
+        <div id="formulaGrid" class="formula-grid"></div>
+      </section>
+
+      <section id="examples" class="content-card numbered-card">
+        <span class="section-number">04</span>
+        <div class="section-head">
+          <p class="eyebrow">Օրինակներ</p>
+          <h2>Քայլ առ քայլ</h2>
+          <p>Լոգարիթմը լուծելիս ամենահեշտը այն աստիճանի տեսքի բերելն է։</p>
+        </div>
+
+        <div class="examples-grid">
+          <article class="example-card">
+            <span>Օրինակ 1</span>
+            <h3>log<sub>3</sub>81</h3>
+            <ol>
+              <li>Հարցնում ենք՝ 3-ը քանիերորդ աստիճան է 81։</li>
+              <li>3<sup>4</sup> = 81</li>
+              <li>Ուրեմն log<sub>3</sub>81 = 4</li>
+            </ol>
+          </article>
+          <article class="example-card">
+            <span>Օրինակ 2</span>
+            <h3>lg 0.01</h3>
+            <ol>
+              <li>lg նշանակում է հիմք 10։</li>
+              <li>0.01 = 10<sup>−2</sup></li>
+              <li>Ուրեմն lg 0.01 = −2</li>
+            </ol>
+          </article>
+          <article class="example-card">
+            <span>Օրինակ 3</span>
+            <h3>ln e<sup>5</sup></h3>
+            <ol>
+              <li>ln-ի հիմքը e է։</li>
+              <li>ln(e<sup>5</sup>) = 5 · ln e</li>
+              <li>ln e = 1, ուրեմն պատասխանը 5</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section id="equations" class="content-card numbered-card">
+        <span class="section-number">05</span>
+        <div class="section-head">
+          <p class="eyebrow">Հավասարումներ</p>
+          <h2>Լոգարիթմային հավասարումներ</h2>
+          <p>Լուծելիս առաջին քայլը միշտ որոշման տիրույթն է՝ լոգարիթմի ներսը պետք է դրական լինի։</p>
+        </div>
+
+        <div class="equation-grid">
+          <article class="info-panel">
+            <h3>Տեսակ 1</h3>
+            <div class="big-formula small">log<sub>a</sub>f(x) = c ⇒ f(x) = a<sup>c</sup></div>
+            <p class="muted">Պայման՝ f(x) &gt; 0</p>
+          </article>
+          <article class="info-panel">
+            <h3>Տեսակ 2</h3>
+            <div class="big-formula small">log<sub>a</sub>f(x) = log<sub>a</sub>g(x) ⇒ f(x) = g(x)</div>
+            <p class="muted">Պայման՝ f(x) &gt; 0 և g(x) &gt; 0</p>
+          </article>
+          <article class="info-panel">
+            <h3>Լուծված օրինակ</h3>
+            <p><strong>log<sub>2</sub>(x − 1) = 3</strong></p>
+            <p>Պայման՝ x − 1 &gt; 0 ⇒ x &gt; 1</p>
+            <p>x − 1 = 2<sup>3</sup> = 8 ⇒ <strong>x = 9</strong></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="graph" class="content-card numbered-card">
+        <span class="section-number">06</span>
+        <div class="section-head">
+          <p class="eyebrow">Գրաֆիկ</p>
+          <h2>y = log<sub>a</sub>x հատկությունները</h2>
+          <p>Լոգարիթմային ֆունկցիան ունի ուղղահայաց ասիմպտոտ x = 0 և անցնում է (1, 0) կետով։</p>
+        </div>
+
+        <div class="split-grid">
+          <article class="info-panel">
+            <h3>Եթե a &gt; 1</h3>
+            <p>Ֆունկցիան աճում է։ Օրինակ՝ log<sub>2</sub>x։</p>
+          </article>
+          <article class="info-panel">
+            <h3>Եթե 0 &lt; a &lt; 1</h3>
+            <p>Ֆունկցիան նվազում է։ Օրինակ՝ log<sub>1/2</sub>x։</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="calculator" class="content-card numbered-card calculator-section">
+        <span class="section-number">07</span>
+        <div class="section-head">
+          <p class="eyebrow">Ինտերակտիվ հաշվիչ</p>
+          <h2>Հաշվիր log<sub>a</sub>x, lg x և ln x</h2>
+          <p>Արժեքները մոտավոր են։ Հաշվիչը նաև ցույց է տալիս՝ պայմանները ճիշտ են, թե ոչ։</p>
+        </div>
+
+        <div class="calculator-grid">
+          <form id="calculatorForm" class="calc-card">
+            <label class="field-label" for="xValue">x թիվը</label>
+            <input id="xValue" class="text-input" type="number" step="any" value="100" />
+
+            <label class="field-label" for="baseValue">Հիմք a</label>
+            <input id="baseValue" class="text-input" type="number" step="any" value="10" />
+
+            <button class="primary-btn full-btn" type="submit">Հաշվել</button>
+          </form>
+
+          <div class="calc-results" aria-live="polite">
+            <div class="result-row"><span>log<sub>a</sub>x</span><strong id="logResult">2</strong></div>
+            <div class="result-row"><span>lg x</span><strong id="lgResult">2</strong></div>
+            <div class="result-row"><span>ln x</span><strong id="lnResult">4.60517</strong></div>
+            <div id="calcStatus" class="note-bar success">Պայմանները ճիշտ են։</div>
+            <div class="formula-hint">
+              <strong>Հուշում հաշվիչի համար</strong>
+              <span>log<sub>a</sub>x = ln x / ln a = lg x / lg a</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="mistakes" class="content-card numbered-card">
+        <span class="section-number">08</span>
+        <div class="section-head">
+          <p class="eyebrow">Սխալներ</p>
+          <h2>Ամենատարածված սխալները</h2>
+          <p>Այս սխալներն են ամենաշատը հանդիպում թեստերում։</p>
+        </div>
+
+        <div class="mistake-grid">
+          <article class="mistake-card"><span>✗</span><h3>log<sub>a</sub>(x + y) = log<sub>a</sub>x + log<sub>a</sub>y</h3><p>Սա սխալ է։ Գումարի լոգարիթմի համար նման կանոն չկա։</p></article>
+          <article class="mistake-card"><span>✗</span><h3>Մոռանալ x &gt; 0 պայմանը</h3><p>Օրինակ՝ log(x − 3)-ի համար պետք է x − 3 &gt; 0 ⇒ x &gt; 3։</p></article>
+          <article class="mistake-card"><span>✗</span><h3>lg և ln խառնելը</h3><p>lg-ի հիմքը 10 է, ln-ի հիմքը e է։ Սրանք նույնը չեն։</p></article>
+          <article class="mistake-card"><span>✗</span><h3>Հիմքը 1 վերցնելը</h3><p>log<sub>1</sub>x գոյություն չունի, որովհետև հիմքը չի կարող լինել 1։</p></article>
+        </div>
+      </section>
+
+      <section id="cheatsheet" class="content-card numbered-card">
+        <span class="section-number">09</span>
+        <div class="section-head">
+          <p class="eyebrow">Կարճ շպարգալկա</p>
+          <h2>Ամենակարևորները մեկ աղյուսակում</h2>
+        </div>
+        <div class="table-wrap compact-table">
+          <table>
+            <tbody id="cheatsheetBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="game" class="content-card numbered-card game-section">
+        <span class="section-number">10</span>
+        <div class="section-head with-action">
+          <div>
+            <p class="eyebrow">Քարտերի խաղ</p>
+            <h2>Հիշիր բանաձևի մյուս կողմը</h2>
+            <p>Յուրաքանչյուր քարտ ունի երկու կողմ։ Խաղը պատահական ցույց է տալիս ձախը կամ աջը, իսկ դու գրում ես մյուս կողմը։ Ամեն նոր խաղում հերթականությունը խառնվում է։</p>
+          </div>
+          <div class="game-mini-settings">
+            <span>Քարտերի քանակ՝ <strong id="formulaCount">0</strong></span>
+          </div>
+        </div>
+
+        <div class="settings-row">
+          <label class="field-label" for="roundSize">Այս խաղում</label>
+          <select id="roundSize" class="select-input">
+            <option value="all">Բոլոր բանաձևերը</option>
+            <option value="8">8 քարտ</option>
+            <option value="12">12 քարտ</option>
+            <option value="16">16 քարտ</option>
+          </select>
+          <label class="toggle-line"><input id="hardMode" type="checkbox" /> <span>Խիստ ստուգում</span></label>
+          <button id="startBtn" class="primary-btn" type="button">Սկսել նոր խաղ</button>
+        </div>
+        <p class="hint-text">Առանց խիստ ռեժիմի՝ ընդունվում են նաև սովորական գրառումներ, օրինակ՝ <code>log_a(xy)</code> կամ <code>lnx/lna</code>։</p>
+
+        <section id="gamePanel" class="game-panel is-hidden" aria-label="Խաղի ընթացք">
+          <div class="game-topline">
+            <div>
+              <p class="eyebrow">Ընթացիկ քարտ</p>
+              <h3 id="gameTitle">Գուշակիր մյուս կողմը</h3>
+            </div>
+            <div class="score-pills" aria-label="Միավորներ">
+              <span class="pill"><b id="scoreText">0</b> ճիշտ</span>
+              <span class="pill"><b id="streakText">0</b> streak</span>
+            </div>
+          </div>
+
+          <div class="progress-wrap" aria-label="Առաջընթաց">
+            <div class="progress-info"><span id="progressText">1 / 1</span><span id="accuracyLive">0%</span></div>
+            <div class="progress-bar"><span id="progressFill"></span></div>
+          </div>
+
+          <article class="flashcard" aria-live="polite">
+            <div class="card-meta"><span id="categoryBadge" class="category-badge">Բանաձև</span><span id="sideBadge" class="side-badge">Ցույց է տրված՝ ձախ կողմը</span></div>
+            <div id="shownFormula" class="formula-display">log<sub>a</sub>x</div>
+            <p id="promptText" class="prompt-text">Գրիր բանաձևի մյուս կողմը։</p>
+          </article>
+
+          <form id="answerForm" class="answer-area" autocomplete="off">
+            <label class="field-label" for="answerInput">Քո պատասխանը</label>
+            <div class="answer-line">
+              <input id="answerInput" class="answer-input" type="text" inputmode="text" placeholder="օր․ log_a x + log_a y" />
+              <button id="checkBtn" class="primary-btn" type="submit">Ստուգել</button>
+            </div>
+            <div class="quick-keys" aria-label="Արագ նշաններ">
+              <button type="button" data-insert="log_a">log_a</button>
+              <button type="button" data-insert="lg">lg</button>
+              <button type="button" data-insert="ln">ln</button>
+              <button type="button" data-insert="x">x</button>
+              <button type="button" data-insert="y">y</button>
+              <button type="button" data-insert="a">a</button>
+              <button type="button" data-insert="b">b</button>
+              <button type="button" data-insert="^">^</button>
+              <button type="button" data-insert="()">()</button>
+              <button type="button" data-insert="/">/</button>
+              <button type="button" data-insert="−">−</button>
+              <button type="button" data-insert="√">√</button>
+            </div>
+          </form>
+
+          <section id="feedbackBox" class="feedback-box is-hidden" aria-live="polite">
+            <div class="feedback-head"><strong id="feedbackTitle">Ճիշտ է</strong><span id="feedbackIcon">✓</span></div>
+            <p id="feedbackText"></p>
+            <div class="correct-answer"><span>Ճիշտ մյուս կողմը</span><strong id="correctAnswerText"></strong></div>
+            <p id="explanationText" class="explanation-text"></p>
+            <button id="nextBtn" class="primary-btn" type="button">Հաջորդ քարտը</button>
+          </section>
+        </section>
+
+        <section id="finishPanel" class="finish-panel is-hidden" aria-label="Խաղի ավարտ">
+          <div class="finish-card">
+            <p class="eyebrow">Խաղն ավարտվեց</p>
+            <h3 id="finishTitle">Արդյունք</h3>
+            <div class="finish-stats">
+              <div><span>Ճիշտ</span><strong id="finishCorrect">0</strong></div>
+              <div><span>Սխալ</span><strong id="finishWrong">0</strong></div>
+              <div><span>Տոկոս</span><strong id="finishAccuracy">0%</strong></div>
+              <div><span>Լավագույն streak</span><strong id="finishStreak">0</strong></div>
+            </div>
+            <div class="hero-actions center-actions">
+              <button id="playAgainBtn" class="primary-btn" type="button">Խաղալ նորից</button>
+              <a class="ghost-btn" href="#stats">Վիճակագրություն</a>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="stats" class="content-card numbered-card">
+        <span class="section-number">11</span>
+        <div class="section-head stats-head">
+          <div>
+            <p class="eyebrow">Քո առաջընթացը</p>
+            <h2>Վիճակագրություն</h2>
+            <p>Պահպանվում է այս սարքի browser-ում՝ localStorage-ով։</p>
+          </div>
+          <button id="resetStatsBtn" class="danger-btn" type="button">Մաքրել վիճակագրությունը</button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card"><span>Խաղեր</span><strong id="totalGames">0</strong></div>
+          <div class="stat-card"><span>Քարտեր</span><strong id="totalCards">0</strong></div>
+          <div class="stat-card"><span>Ճիշտ</span><strong id="totalCorrect">0</strong></div>
+          <div class="stat-card"><span>Ընդհանուր տոկոս</span><strong id="totalAccuracy">0%</strong></div>
+          <div class="stat-card"><span>Լավագույն streak</span><strong id="bestStreak">0</strong></div>
+        </div>
+
+        <div class="wide-card"><h3>Ամենաթույլ քարտերը</h3><div id="weakList" class="weak-list"></div></div>
+        <div class="wide-card"><h3>Վերջին խաղերը</h3><div id="historyList" class="history-list"></div></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Ստատիկ էջ է՝ աշխատում է առանց ինտերնետի։</span>
+      <a href="#home">Վերադառնալ վերև</a>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">Պատճենվեց</div>
+  <script src="js/app.js"></script>
+</body>
+</html>
