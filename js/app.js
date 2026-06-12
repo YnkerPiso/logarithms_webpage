@@ -6,166 +6,763 @@
 
   const FORMULAS = [
     {
-      id: 'product', group: 'rules', category: 'Արտադրյալ',
-      leftHtml: 'log<sub>a</sub>(xy)', rightHtml: 'log<sub>a</sub>x + log<sub>a</sub>y',
-      plain: 'log_a(xy) = log_a x + log_a y',
-      leftAliases: ['log_a(xy)', 'loga(xy)', 'log_a xy', 'log_a(x*y)', 'logₐ(xy)'],
-      rightAliases: ['log_a x + log_a y', 'log_ax+log_ay', 'loga x + loga y', 'log_a(x)+log_a(y)', 'logₐx+logₐy'],
-      explanation: 'Արտադրյալի լոգարիթմը նույն հիմքով լոգարիթմների գումարն է։'
+        "id": "product",
+        "group": "rules",
+        "category": "Արտադրյալ",
+        "leftHtml": "log<sub>a</sub>(xy)",
+        "rightHtml": "log<sub>a</sub>x + log<sub>a</sub>y",
+        "plain": "log_a(xy) = log_a x + log_a y",
+        "leftAliases": [
+            "log_a(xy)",
+            "loga(xy)",
+            "log_a xy",
+            "log_a(x*y)",
+            "logₐ(xy)"
+        ],
+        "rightAliases": [
+            "log_a x + log_a y",
+            "log_ax+log_ay",
+            "loga x + loga y",
+            "log_a(x)+log_a(y)",
+            "logₐx+logₐy"
+        ],
+        "explanation": "Արտադրյալի լոգարիթմը նույն հիմքով լոգարիթմների գումարն է։",
+        "connectionHtml": "Հիմնական կանոն է․ դրանից գալիս է հակառակ ձևը՝ log<sub>a</sub>x + log<sub>a</sub>y = log<sub>a</sub>(xy)։"
     },
     {
-      id: 'quotient', group: 'rules', category: 'Քանորդ',
-      leftHtml: 'log<sub>a</sub>(x/y)', rightHtml: 'log<sub>a</sub>x − log<sub>a</sub>y',
-      plain: 'log_a(x/y) = log_a x − log_a y',
-      leftAliases: ['log_a(x/y)', 'loga(x/y)', 'log_a x/y', 'logₐ(x/y)'],
-      rightAliases: ['log_a x - log_a y', 'log_ax-log_ay', 'loga x - loga y', 'log_a(x)-log_a(y)', 'logₐx−logₐy'],
-      explanation: 'Քանորդի լոգարիթմը համարիչի լոգարիթմից հանած հայտարարի լոգարիթմն է։'
+        "id": "quotient",
+        "group": "rules",
+        "category": "Քանորդ",
+        "leftHtml": "log<sub>a</sub>(x/y)",
+        "rightHtml": "log<sub>a</sub>x − log<sub>a</sub>y",
+        "plain": "log_a(x/y) = log_a x − log_a y",
+        "leftAliases": [
+            "log_a(x/y)",
+            "loga(x/y)",
+            "log_a x/y",
+            "logₐ(x/y)"
+        ],
+        "rightAliases": [
+            "log_a x - log_a y",
+            "log_ax-log_ay",
+            "loga x - loga y",
+            "log_a(x)-log_a(y)",
+            "logₐx−logₐy"
+        ],
+        "explanation": "Քանորդի լոգարիթմը համարիչի լոգարիթմից հանած հայտարարի լոգարիթմն է։",
+        "connectionHtml": "Հիմնական կանոն է․ դրանից գալիս է հակառակ ձևը՝ log<sub>a</sub>x − log<sub>a</sub>y = log<sub>a</sub>(x/y)։"
     },
     {
-      id: 'power', group: 'rules', category: 'Աստիճան',
-      leftHtml: 'log<sub>a</sub>(x<sup>n</sup>)', rightHtml: 'n log<sub>a</sub>x',
-      plain: 'log_a(x^n) = n log_a x',
-      leftAliases: ['log_a(x^n)', 'log_a x^n', 'loga(x^n)', 'logₐ(xⁿ)'],
-      rightAliases: ['n log_a x', 'nlog_ax', 'n*log_a x', 'n·log_a x', 'nloga x', 'n logₐx'],
-      explanation: 'Լոգարիթմվող արտահայտության աստիճանը դուրս է գալիս որպես գործակից։'
+        "id": "power",
+        "group": "rules",
+        "category": "Աստիճան",
+        "leftHtml": "log<sub>a</sub>(x<sup>n</sup>)",
+        "rightHtml": "n log<sub>a</sub>x",
+        "plain": "log_a(x^n) = n log_a x",
+        "leftAliases": [
+            "log_a(x^n)",
+            "log_a x^n",
+            "loga(x^n)",
+            "logₐ(xⁿ)"
+        ],
+        "rightAliases": [
+            "n log_a x",
+            "nlog_ax",
+            "n*log_a x",
+            "n·log_a x",
+            "nloga x",
+            "n logₐx"
+        ],
+        "explanation": "Լոգարիթմվող արտահայտության աստիճանը դուրս է գալիս որպես գործակից։",
+        "connectionHtml": "Հիմնական կանոն է․ դրանից գալիս են գործակիցը աստիճան դարձնելը, արմատները և բացասական գործակիցները։",
+        "exampleHtml": "Օրինակ՝ 2lg√3 = lg(√3)<sup>2</sup> = lg3։"
     },
     {
-      id: 'root', group: 'rules', category: 'Արմատ',
-      leftHtml: 'log<sub>a</sub>√x', rightHtml: '1/2 log<sub>a</sub>x',
-      plain: 'log_a√x = 1/2 log_a x',
-      leftAliases: ['log_a sqrt(x)', 'log_a√x', 'log_a sqrtx', 'log_a(x^(1/2))', 'loga√x'],
-      rightAliases: ['1/2 log_a x', '(1/2)log_a x', '0.5log_a x', '0,5log_a x', '1/2*log_a x', '½log_a x'],
-      explanation: 'Քանի որ √x = x^(1/2), աստիճանի կանոնից ստացվում է 1/2 գործակիցը։'
+        "id": "root",
+        "group": "rules",
+        "category": "Քառակուսի արմատ",
+        "leftHtml": "log<sub>a</sub>√x",
+        "rightHtml": "1/2 log<sub>a</sub>x",
+        "plain": "log_a√x = 1/2 log_a x",
+        "leftAliases": [
+            "log_a sqrt(x)",
+            "log_a√x",
+            "log_a sqrtx",
+            "log_a(x^(1/2))",
+            "loga√x"
+        ],
+        "rightAliases": [
+            "1/2 log_a x",
+            "(1/2)log_a x",
+            "0.5log_a x",
+            "0,5log_a x",
+            "1/2*log_a x",
+            "½log_a x"
+        ],
+        "explanation": "Քանի որ √x = x^(1/2), աստիճանի կանոնից ստացվում է 1/2 գործակիցը։",
+        "connectionHtml": "Գալիս է աստիճանի կանոնից՝ log<sub>a</sub>(x<sup>n</sup>) = nlog<sub>a</sub>x, որտեղ n = 1/2։"
     },
     {
-      id: 'base-log', group: 'basic', category: 'Հիմքի լոգարիթմ',
-      leftHtml: 'log<sub>a</sub>a', rightHtml: '1',
-      plain: 'log_a a = 1',
-      leftAliases: ['log_a a', 'log_aa', 'loga a', 'logₐa'],
-      rightAliases: ['1', '+1'],
-      explanation: 'a-ն պետք է բարձրացնել 1 աստիճան, որպեսզի ստացվի a։'
+        "id": "nth-root",
+        "group": "transform",
+        "category": "n-րդ արմատ",
+        "leftHtml": "log<sub>a</sub><sup>n</sup>√x",
+        "rightHtml": "1/n log<sub>a</sub>x",
+        "plain": "log_a(n-th root of x) = 1/n log_a x",
+        "leftAliases": [
+            "log_a nthroot x",
+            "log_a root_n x",
+            "log_a(x^(1/n))",
+            "log_a n√x",
+            "log_a ⁿ√x"
+        ],
+        "rightAliases": [
+            "1/n log_a x",
+            "(1/n)log_a x",
+            "1/n*log_a x",
+            "log_a x/n",
+            "1/nloga x"
+        ],
+        "explanation": "n-րդ արմատը նույնն է, ինչ x^(1/n), դրա համար գործակիցը դառնում է 1/n։",
+        "connectionHtml": "Գալիս է աստիճանի կանոնից՝ log<sub>a</sub>(x<sup>n</sup>) = nlog<sub>a</sub>x։",
+        "exampleHtml": "Օրինակ՝ log<sub>a</sub>∛x = 1/3 log<sub>a</sub>x։"
     },
     {
-      id: 'one-log', group: 'basic', category: 'Մեկի լոգարիթմ',
-      leftHtml: 'log<sub>a</sub>1', rightHtml: '0',
-      plain: 'log_a 1 = 0',
-      leftAliases: ['log_a 1', 'log_a1', 'loga1', 'logₐ1'],
-      rightAliases: ['0', '+0'],
-      explanation: 'Ցանկացած թույլատրելի հիմքի համար a^0 = 1։'
+        "id": "base-log",
+        "group": "basic",
+        "category": "Հիմքի լոգարիթմ",
+        "leftHtml": "log<sub>a</sub>a",
+        "rightHtml": "1",
+        "plain": "log_a a = 1",
+        "leftAliases": [
+            "log_a a",
+            "log_aa",
+            "loga a",
+            "logₐa"
+        ],
+        "rightAliases": [
+            "1",
+            "+1"
+        ],
+        "explanation": "a-ն պետք է բարձրացնել 1 աստիճան, որպեսզի ստացվի a։"
     },
     {
-      id: 'log-of-power-base', group: 'basic', category: 'Հակադարձ գործողություններ',
-      leftHtml: 'log<sub>a</sub>(a<sup>x</sup>)', rightHtml: 'x',
-      plain: 'log_a(a^x) = x',
-      leftAliases: ['log_a(a^x)', 'log_a a^x', 'loga(a^x)', 'logₐ(aˣ)'],
-      rightAliases: ['x'],
-      explanation: 'Լոգարիթմը և նույն հիմքով աստիճանը իրար հակադարձ գործողություններ են։'
+        "id": "one-log",
+        "group": "basic",
+        "category": "Մեկի լոգարիթմ",
+        "leftHtml": "log<sub>a</sub>1",
+        "rightHtml": "0",
+        "plain": "log_a 1 = 0",
+        "leftAliases": [
+            "log_a 1",
+            "log_a1",
+            "loga1",
+            "logₐ1"
+        ],
+        "rightAliases": [
+            "0",
+            "+0"
+        ],
+        "explanation": "Ցանկացած թույլատրելի հիմքի համար a^0 = 1։"
     },
     {
-      id: 'power-of-log', group: 'basic', category: 'Հակադարձ գործողություններ',
-      leftHtml: 'a<sup>log<sub>a</sub>x</sup>', rightHtml: 'x',
-      plain: 'a^(log_a x) = x',
-      leftAliases: ['a^(log_a x)', 'a^log_a x', 'a^{log_a x}', 'a^(log_ax)', 'a^log_ax'],
-      rightAliases: ['x'],
-      explanation: 'Եթե a-ը բարձրացվում է logₐx աստիճան, արդյունքը x է։'
+        "id": "log-of-power-base",
+        "group": "basic",
+        "category": "Հակադարձ գործողություն",
+        "leftHtml": "log<sub>a</sub>(a<sup>x</sup>)",
+        "rightHtml": "x",
+        "plain": "log_a(a^x) = x",
+        "leftAliases": [
+            "log_a(a^x)",
+            "log_a a^x",
+            "loga(a^x)",
+            "logₐ(aˣ)"
+        ],
+        "rightAliases": [
+            "x"
+        ],
+        "explanation": "Լոգարիթմը և նույն հիմքով աստիճանը իրար հակադարձ գործողություններ են։"
     },
     {
-      id: 'reciprocal-base', group: 'base', category: 'Փոխադարձ հիմքեր',
-      leftHtml: 'log<sub>a</sub>b', rightHtml: '1 / log<sub>b</sub>a',
-      plain: 'log_a b = 1 / log_b a',
-      leftAliases: ['log_a b', 'log_ab', 'loga b', 'logₐb'],
-      rightAliases: ['1/log_b a', '1/log_ba', '1/(log_b a)', '1/logba', '1 / log_b a'],
-      explanation: 'Հիմքը և լոգարիթմվող թիվը տեղերով փոխելիս ստացվում է հակադարձ արժեքը։'
+        "id": "power-of-log",
+        "group": "basic",
+        "category": "Հակադարձ գործողություն",
+        "leftHtml": "a<sup>log<sub>a</sub>x</sup>",
+        "rightHtml": "x",
+        "plain": "a^(log_a x) = x",
+        "leftAliases": [
+            "a^(log_a x)",
+            "a^log_a x",
+            "a^{log_a x}",
+            "a^(log_ax)",
+            "a^log_ax"
+        ],
+        "rightAliases": [
+            "x"
+        ],
+        "explanation": "Եթե a-ը բարձրացվում է logₐx աստիճան, արդյունքը x է։"
     },
     {
-      id: 'base-change', group: 'base', category: 'Հիմքի փոխում',
-      leftHtml: 'log<sub>a</sub>x', rightHtml: 'log<sub>b</sub>x / log<sub>b</sub>a',
-      plain: 'log_a x = log_b x / log_b a',
-      leftAliases: ['log_a x', 'log_ax', 'loga x', 'logₐx'],
-      rightAliases: ['log_b x/log_b a', 'log_bx/log_ba', 'logbx/logba', 'log_b(x)/log_b(a)', 'ln x/ln a', 'lnx/lna', 'lg x/lg a', 'lgx/lga'],
-      explanation: 'Հիմքը փոխելու համար նույն նոր հիմքով վերցնում ենք x-ի և a-ի լոգարիթմների հարաբերությունը։'
+        "id": "a-k-log",
+        "group": "transform",
+        "category": "Աստիճան + log",
+        "leftHtml": "a<sup>k log<sub>a</sub>x</sup>",
+        "rightHtml": "x<sup>k</sup>",
+        "plain": "a^(k log_a x) = x^k",
+        "leftAliases": [
+            "a^(k log_a x)",
+            "a^(klog_ax)",
+            "a^klog_ax",
+            "a^{k log_a x}"
+        ],
+        "rightAliases": [
+            "x^k",
+            "xk",
+            "x^{k}"
+        ],
+        "explanation": "k գործակիցը նախ կարող է տեղափոխվել որպես x-ի աստիճան, հետո a^(logₐ...) կանոնը վերացնում է log-ը։",
+        "connectionHtml": "Գալիս է a<sup>log<sub>a</sub>x</sup> = x և nlog<sub>a</sub>x = log<sub>a</sub>(x<sup>n</sup>) ձևերից։",
+        "exampleHtml": "Օրինակ՝ 10<sup>2lg3</sup> = 3<sup>2</sup> = 9։"
     },
     {
-      id: 'lg', group: 'basic', category: 'lg',
-      leftHtml: 'lg x', rightHtml: 'log<sub>10</sub>x',
-      plain: 'lg x = log_10 x',
-      leftAliases: ['lg x', 'lgx'],
-      rightAliases: ['log_10 x', 'log10x', 'log_10x', 'log₁₀x'],
-      explanation: 'lg-ը տասնորդական լոգարիթմն է, այսինքն՝ հիմքը 10 է։'
+        "id": "reciprocal-base",
+        "group": "base",
+        "category": "Փոխադարձ հիմքեր",
+        "leftHtml": "log<sub>a</sub>b",
+        "rightHtml": "1 / log<sub>b</sub>a",
+        "plain": "log_a b = 1 / log_b a",
+        "leftAliases": [
+            "log_a b",
+            "log_ab",
+            "loga b",
+            "logₐb"
+        ],
+        "rightAliases": [
+            "1/log_b a",
+            "1/log_ba",
+            "1/(log_b a)",
+            "1/logba",
+            "1 / log_b a"
+        ],
+        "explanation": "Հիմքը և լոգարիթմվող թիվը տեղերով փոխելիս ստացվում է հակադարձ արժեքը։",
+        "connectionHtml": "Գալիս է հիմքի փոխման կանոնից՝ log<sub>a</sub>b = log<sub>b</sub>b / log<sub>b</sub>a = 1/log<sub>b</sub>a։"
     },
     {
-      id: 'ln', group: 'basic', category: 'ln',
-      leftHtml: 'ln x', rightHtml: 'log<sub>e</sub>x',
-      plain: 'ln x = log_e x',
-      leftAliases: ['ln x', 'lnx'],
-      rightAliases: ['log_e x', 'logex', 'log_ex', 'logₑx'],
-      explanation: 'ln-ը բնական լոգարիթմն է, այսինքն՝ հիմքը e է։'
+        "id": "base-change",
+        "group": "base",
+        "category": "Հիմքի փոխում",
+        "leftHtml": "log<sub>a</sub>x",
+        "rightHtml": "log<sub>b</sub>x / log<sub>b</sub>a",
+        "plain": "log_a x = log_b x / log_b a",
+        "leftAliases": [
+            "log_a x",
+            "log_ax",
+            "loga x",
+            "logₐx"
+        ],
+        "rightAliases": [
+            "log_b x/log_b a",
+            "log_bx/log_ba",
+            "logbx/logba",
+            "log_b(x)/log_b(a)",
+            "ln x/ln a",
+            "lnx/lna",
+            "lg x/lg a",
+            "lgx/lga"
+        ],
+        "explanation": "Հիմքը փոխելու համար նույն նոր հիմքով վերցնում ենք x-ի և a-ի լոգարիթմների հարաբերությունը։"
     },
     {
-      id: 'inverse-argument', group: 'rules', category: 'Հակադարձ թիվ',
-      leftHtml: 'log<sub>a</sub>(1/x)', rightHtml: '−log<sub>a</sub>x',
-      plain: 'log_a(1/x) = −log_a x',
-      leftAliases: ['log_a(1/x)', 'log_a 1/x', 'loga(1/x)', 'logₐ(1/x)'],
-      rightAliases: ['-log_a x', '-log_ax', '−log_a x', '-loga x', '-logₐx'],
-      explanation: '1/x = x^(-1), ուստի աստիճանի կանոնով դուրս է գալիս −1։'
+        "id": "base-change-ln",
+        "group": "base",
+        "category": "Հիմքի փոխում ln-ով",
+        "leftHtml": "log<sub>a</sub>x",
+        "rightHtml": "ln x / ln a",
+        "plain": "log_a x = ln x / ln a",
+        "leftAliases": [
+            "log_a x",
+            "log_ax",
+            "loga x",
+            "logₐx"
+        ],
+        "rightAliases": [
+            "ln x/ln a",
+            "lnx/lna",
+            "ln(x)/ln(a)"
+        ],
+        "explanation": "Հիմքի փոխման կանոնում նոր հիմքը վերցնում ենք e, ուստի ստացվում է ln։",
+        "connectionHtml": "Գալիս է log<sub>a</sub>x = log<sub>b</sub>x / log<sub>b</sub>a կանոնից՝ b = e։"
     },
     {
-      id: 'negative-power', group: 'rules', category: 'Բացասական աստիճան',
-      leftHtml: 'log<sub>a</sub>(x<sup>−n</sup>)', rightHtml: '−n log<sub>a</sub>x',
-      plain: 'log_a(x^−n) = −n log_a x',
-      leftAliases: ['log_a(x^-n)', 'log_a x^-n', 'log_a(x^{-n})', 'loga(x^-n)', 'logₐ(x⁻ⁿ)'],
-      rightAliases: ['-n log_a x', '-nlog_ax', '−n log_a x', '-n*log_a x', '-nloga x'],
-      explanation: 'Բացասական աստիճանը դուրս է գալիս նույն նշանով՝ −n։'
+        "id": "base-change-lg",
+        "group": "base",
+        "category": "Հիմքի փոխում lg-ով",
+        "leftHtml": "log<sub>a</sub>x",
+        "rightHtml": "lg x / lg a",
+        "plain": "log_a x = lg x / lg a",
+        "leftAliases": [
+            "log_a x",
+            "log_ax",
+            "loga x",
+            "logₐx"
+        ],
+        "rightAliases": [
+            "lg x/lg a",
+            "lgx/lga",
+            "lg(x)/lg(a)"
+        ],
+        "explanation": "Հիմքի փոխման կանոնում նոր հիմքը վերցնում ենք 10, ուստի ստացվում է lg։",
+        "connectionHtml": "Գալիս է log<sub>a</sub>x = log<sub>b</sub>x / log<sub>b</sub>a կանոնից՝ b = 10։"
     },
     {
-      id: 'a-power-n', group: 'basic', category: 'Հիմքի աստիճան',
-      leftHtml: 'log<sub>a</sub>(a<sup>n</sup>)', rightHtml: 'n',
-      plain: 'log_a(a^n) = n',
-      leftAliases: ['log_a(a^n)', 'log_a a^n', 'loga(a^n)', 'logₐ(aⁿ)'],
-      rightAliases: ['n'],
-      explanation: 'Նույն հիմքի դեպքում լոգարիթմը վերադարձնում է աստիճանացույցը։'
+        "id": "lg",
+        "group": "basic",
+        "category": "lg",
+        "leftHtml": "lg x",
+        "rightHtml": "log<sub>10</sub>x",
+        "plain": "lg x = log_10 x",
+        "leftAliases": [
+            "lg x",
+            "lgx"
+        ],
+        "rightAliases": [
+            "log_10 x",
+            "log10x",
+            "log_10x",
+            "log₁₀x"
+        ],
+        "explanation": "lg-ը տասնորդական լոգարիթմն է, այսինքն՝ հիմքը 10 է։"
     },
     {
-      id: 'negative-base-power', group: 'basic', category: 'Հիմքի բացասական աստիճան',
-      leftHtml: 'log<sub>a</sub>(a<sup>−n</sup>)', rightHtml: '−n',
-      plain: 'log_a(a^−n) = −n',
-      leftAliases: ['log_a(a^-n)', 'log_a a^-n', 'log_a(a^{-n})', 'loga(a^-n)', 'logₐ(a⁻ⁿ)'],
-      rightAliases: ['-n', '−n'],
-      explanation: 'Նույն հիմքի դեպքում պատասխանը ուղղակի աստիճանացույցն է՝ այստեղ −n։'
+        "id": "ln",
+        "group": "basic",
+        "category": "ln",
+        "leftHtml": "ln x",
+        "rightHtml": "log<sub>e</sub>x",
+        "plain": "ln x = log_e x",
+        "leftAliases": [
+            "ln x",
+            "lnx"
+        ],
+        "rightAliases": [
+            "log_e x",
+            "logex",
+            "log_ex",
+            "logₑx"
+        ],
+        "explanation": "ln-ը բնական լոգարիթմն է, այսինքն՝ հիմքը e է։"
     },
     {
-      id: 'two-powers-product', group: 'mixed', category: 'Խառը արտադրյալ',
-      leftHtml: 'log<sub>a</sub>(x<sup>m</sup>y<sup>n</sup>)', rightHtml: 'm log<sub>a</sub>x + n log<sub>a</sub>y',
-      plain: 'log_a(x^m y^n) = m log_a x + n log_a y',
-      leftAliases: ['log_a(x^m y^n)', 'log_a(x^m*y^n)', 'loga(x^m y^n)'],
-      rightAliases: ['m log_a x + n log_a y', 'mlog_ax+nlog_ay', 'm*log_a x+n*log_a y', 'm loga x + n loga y'],
-      explanation: 'Օգտագործվում են և՛ արտադրյալի, և՛ աստիճանի կանոնները։'
+        "id": "inverse-argument",
+        "group": "rules",
+        "category": "Հակադարձ թիվ",
+        "leftHtml": "log<sub>a</sub>(1/x)",
+        "rightHtml": "−log<sub>a</sub>x",
+        "plain": "log_a(1/x) = −log_a x",
+        "leftAliases": [
+            "log_a(1/x)",
+            "log_a 1/x",
+            "loga(1/x)",
+            "logₐ(1/x)"
+        ],
+        "rightAliases": [
+            "-log_a x",
+            "-log_ax",
+            "−log_a x",
+            "-loga x",
+            "-logₐx"
+        ],
+        "explanation": "1/x = x^(-1), ուստի աստիճանի կանոնով դուրս է գալիս −1։",
+        "connectionHtml": "Գալիս է աստիճանի կանոնից՝ log<sub>a</sub>(x<sup>−1</sup>) = −log<sub>a</sub>x։"
     },
     {
-      id: 'two-powers-quotient', group: 'mixed', category: 'Խառը քանորդ',
-      leftHtml: 'log<sub>a</sub>(x<sup>m</sup>/y<sup>n</sup>)', rightHtml: 'm log<sub>a</sub>x − n log<sub>a</sub>y',
-      plain: 'log_a(x^m/y^n) = m log_a x − n log_a y',
-      leftAliases: ['log_a(x^m/y^n)', 'log_a(x^m / y^n)', 'loga(x^m/y^n)'],
-      rightAliases: ['m log_a x - n log_a y', 'mlog_ax-nlog_ay', 'm*log_a x-n*log_a y', 'm loga x - n loga y'],
-      explanation: 'Քանորդի կանոնից գալիս է հանում, իսկ աստիճանները դառնում են գործակիցներ։'
+        "id": "negative-power",
+        "group": "rules",
+        "category": "Բացասական աստիճան",
+        "leftHtml": "log<sub>a</sub>(x<sup>−n</sup>)",
+        "rightHtml": "−n log<sub>a</sub>x",
+        "plain": "log_a(x^−n) = −n log_a x",
+        "leftAliases": [
+            "log_a(x^-n)",
+            "log_a x^-n",
+            "log_a(x^{-n})",
+            "loga(x^-n)",
+            "logₐ(x⁻ⁿ)"
+        ],
+        "rightAliases": [
+            "-n log_a x",
+            "-nlog_ax",
+            "−n log_a x",
+            "-n*log_a x",
+            "-nloga x"
+        ],
+        "explanation": "Բացասական աստիճանը դուրս է գալիս նույն նշանով՝ −n։",
+        "connectionHtml": "Գալիս է աստիճանի կանոնից՝ n-ի փոխարեն վերցնում ենք −n։"
     },
     {
-      id: 'chain', group: 'mixed', category: 'Շղթայական կանոն',
-      leftHtml: 'log<sub>a</sub>b · log<sub>b</sub>c', rightHtml: 'log<sub>a</sub>c',
-      plain: 'log_a b · log_b c = log_a c',
-      leftAliases: ['log_a b * log_b c', 'log_ab*log_bc', 'log_a b log_b c', 'log_ab log_bc', 'logₐb·log_bc'],
-      rightAliases: ['log_a c', 'log_ac', 'loga c', 'logₐc'],
-      explanation: 'Միջանկյալ b հիմքը կրճատվում է, ինչպես հիմքի փոխման կանոնում։'
+        "id": "a-power-n",
+        "group": "basic",
+        "category": "Հիմքի աստիճան",
+        "leftHtml": "log<sub>a</sub>(a<sup>n</sup>)",
+        "rightHtml": "n",
+        "plain": "log_a(a^n) = n",
+        "leftAliases": [
+            "log_a(a^n)",
+            "log_a a^n",
+            "loga(a^n)",
+            "logₐ(aⁿ)"
+        ],
+        "rightAliases": [
+            "n"
+        ],
+        "explanation": "Նույն հիմքի դեպքում լոգարիթմը վերադարձնում է աստիճանացույցը։",
+        "connectionHtml": "Գալիս է log<sub>a</sub>(a<sup>x</sup>) = x հակադարձ գործողության կանոնից։"
     },
     {
-      id: 'multiplication-inverse', group: 'base', category: 'Փոխադարձություն',
-      leftHtml: 'log<sub>a</sub>x · log<sub>x</sub>a', rightHtml: '1',
-      plain: 'log_a x · log_x a = 1',
-      leftAliases: ['log_a x * log_x a', 'log_ax*log_xa', 'log_a x log_x a', 'log_ax log_xa'],
-      rightAliases: ['1', '+1'],
-      explanation: 'logₐx և logₓa փոխադարձ թվեր են, ուստի արտադրյալը 1 է։'
+        "id": "negative-base-power",
+        "group": "basic",
+        "category": "Հիմքի բացասական աստիճան",
+        "leftHtml": "log<sub>a</sub>(a<sup>−n</sup>)",
+        "rightHtml": "−n",
+        "plain": "log_a(a^−n) = −n",
+        "leftAliases": [
+            "log_a(a^-n)",
+            "log_a a^-n",
+            "log_a(a^{-n})",
+            "loga(a^-n)",
+            "logₐ(a⁻ⁿ)"
+        ],
+        "rightAliases": [
+            "-n",
+            "−n"
+        ],
+        "explanation": "Նույն հիմքի դեպքում պատասխանը ուղղակի աստիճանացույցն է՝ այստեղ −n։",
+        "connectionHtml": "Գալիս է log<sub>a</sub>(a<sup>x</sup>) = x կանոնից, երբ x = −n։"
+    },
+    {
+        "id": "two-powers-product",
+        "group": "mixed",
+        "category": "Խառը արտադրյալ",
+        "leftHtml": "log<sub>a</sub>(x<sup>m</sup>y<sup>n</sup>)",
+        "rightHtml": "m log<sub>a</sub>x + n log<sub>a</sub>y",
+        "plain": "log_a(x^m y^n) = m log_a x + n log_a y",
+        "leftAliases": [
+            "log_a(x^m y^n)",
+            "log_a(x^m*y^n)",
+            "loga(x^m y^n)"
+        ],
+        "rightAliases": [
+            "m log_a x + n log_a y",
+            "mlog_ax+nlog_ay",
+            "m*log_a x+n*log_a y",
+            "m loga x + n loga y"
+        ],
+        "explanation": "Օգտագործվում են և՛ արտադրյալի, և՛ աստիճանի կանոնները։",
+        "connectionHtml": "Գալիս է log<sub>a</sub>(xy) և log<sub>a</sub>(x<sup>n</sup>) կանոնները միասին կիրառելուց։"
+    },
+    {
+        "id": "two-powers-quotient",
+        "group": "mixed",
+        "category": "Խառը քանորդ",
+        "leftHtml": "log<sub>a</sub>(x<sup>m</sup>/y<sup>n</sup>)",
+        "rightHtml": "m log<sub>a</sub>x − n log<sub>a</sub>y",
+        "plain": "log_a(x^m/y^n) = m log_a x − n log_a y",
+        "leftAliases": [
+            "log_a(x^m/y^n)",
+            "log_a(x^m / y^n)",
+            "loga(x^m/y^n)"
+        ],
+        "rightAliases": [
+            "m log_a x - n log_a y",
+            "mlog_ax-nlog_ay",
+            "m*log_a x-n*log_a y",
+            "m loga x - n loga y"
+        ],
+        "explanation": "Քանորդի կանոնից գալիս է հանում, իսկ աստիճանները դառնում են գործակիցներ։",
+        "connectionHtml": "Գալիս է log<sub>a</sub>(x/y) և log<sub>a</sub>(x<sup>n</sup>) կանոնները միասին կիրառելուց։"
+    },
+    {
+        "id": "coeff-to-power",
+        "group": "transform",
+        "category": "Գործակիցը աստիճան",
+        "leftHtml": "n log<sub>a</sub>x",
+        "rightHtml": "log<sub>a</sub>(x<sup>n</sup>)",
+        "plain": "n log_a x = log_a(x^n)",
+        "leftAliases": [
+            "n log_a x",
+            "nlog_ax",
+            "n*log_a x",
+            "nloga x"
+        ],
+        "rightAliases": [
+            "log_a(x^n)",
+            "log_a x^n",
+            "loga(x^n)"
+        ],
+        "explanation": "Եթե log-ի առաջ գործակից կա, այն կարելի է տեղափոխել ներս՝ որպես աստիճան։",
+        "connectionHtml": "Սա աստիճանի կանոնի հակառակ ուղղությունն է՝ log<sub>a</sub>(x<sup>n</sup>) = nlog<sub>a</sub>x։",
+        "exampleHtml": "Օրինակ՝ 2lg√3 = lg(√3)<sup>2</sup> = lg3։"
+    },
+    {
+        "id": "fraction-coeff-to-root",
+        "group": "transform",
+        "category": "Կոտորակ գործակից",
+        "leftHtml": "1/n log<sub>a</sub>x",
+        "rightHtml": "log<sub>a</sub><sup>n</sup>√x",
+        "plain": "1/n log_a x = log_a(n-th root of x)",
+        "leftAliases": [
+            "1/n log_a x",
+            "(1/n)log_a x",
+            "1/n*log_a x",
+            "log_a x/n",
+            "1/nloga x"
+        ],
+        "rightAliases": [
+            "log_a nthroot x",
+            "log_a root_n x",
+            "log_a(x^(1/n))",
+            "log_a n√x",
+            "log_a ⁿ√x"
+        ],
+        "explanation": "Կոտորակ գործակիցը ներսում դառնում է կոտորակ աստիճան, այսինքն՝ արմատ։",
+        "connectionHtml": "Գալիս է nlog<sub>a</sub>x = log<sub>a</sub>(x<sup>n</sup>) ձևից՝ n-ի փոխարեն 1/n։",
+        "exampleHtml": "Օրինակ՝ 1/2 log<sub>a</sub>x = log<sub>a</sub>√x։"
+    },
+    {
+        "id": "negative-coeff-to-reciprocal",
+        "group": "transform",
+        "category": "Բացասական գործակից",
+        "leftHtml": "−log<sub>a</sub>x",
+        "rightHtml": "log<sub>a</sub>(1/x)",
+        "plain": "−log_a x = log_a(1/x)",
+        "leftAliases": [
+            "-log_a x",
+            "-log_ax",
+            "−log_a x",
+            "-loga x"
+        ],
+        "rightAliases": [
+            "log_a(1/x)",
+            "log_a 1/x",
+            "loga(1/x)"
+        ],
+        "explanation": "Մինուսը նշանակում է x-ի −1 աստիճան, իսկ x^(−1) = 1/x։",
+        "connectionHtml": "Գալիս է log<sub>a</sub>(x<sup>−1</sup>) = −log<sub>a</sub>x կանոնից։",
+        "exampleHtml": "Օրինակ՝ −lg5 = lg(1/5)։"
+    },
+    {
+        "id": "negative-n-coeff-to-reciprocal",
+        "group": "transform",
+        "category": "−n գործակից",
+        "leftHtml": "−n log<sub>a</sub>x",
+        "rightHtml": "log<sub>a</sub>(1/x<sup>n</sup>)",
+        "plain": "−n log_a x = log_a(1/x^n)",
+        "leftAliases": [
+            "-n log_a x",
+            "-nlog_ax",
+            "−n log_a x",
+            "-n*log_a x"
+        ],
+        "rightAliases": [
+            "log_a(1/x^n)",
+            "log_a x^-n",
+            "log_a(x^-n)",
+            "loga(1/x^n)"
+        ],
+        "explanation": "−n գործակիցը ներսում դառնում է x^(−n), այսինքն՝ 1/x^n։",
+        "connectionHtml": "Գալիս է աստիճանի կանոնի հակառակ ուղղությունից և բացասական աստիճանի կանոնից։",
+        "exampleHtml": "Օրինակ՝ −2log<sub>a</sub>x = log<sub>a</sub>(1/x<sup>2</sup>)։"
+    },
+    {
+        "id": "sum-to-product",
+        "group": "transform",
+        "category": "Գումարը արտադրյալ",
+        "leftHtml": "log<sub>a</sub>x + log<sub>a</sub>y",
+        "rightHtml": "log<sub>a</sub>(xy)",
+        "plain": "log_a x + log_a y = log_a(xy)",
+        "leftAliases": [
+            "log_a x + log_a y",
+            "log_ax+log_ay",
+            "loga x + loga y"
+        ],
+        "rightAliases": [
+            "log_a(xy)",
+            "log_a(x*y)",
+            "loga(xy)"
+        ],
+        "explanation": "Երկու նույն հիմքով լոգարիթմների գումարը կարելի է գրել մեկ լոգարիթմով՝ արտադրյալով։",
+        "connectionHtml": "Սա արտադրյալի կանոնի հակառակ ուղղությունն է։",
+        "exampleHtml": "Օրինակ՝ lg2 + lg5 = lg10 = 1։"
+    },
+    {
+        "id": "difference-to-quotient",
+        "group": "transform",
+        "category": "Տարբերությունը քանորդ",
+        "leftHtml": "log<sub>a</sub>x − log<sub>a</sub>y",
+        "rightHtml": "log<sub>a</sub>(x/y)",
+        "plain": "log_a x − log_a y = log_a(x/y)",
+        "leftAliases": [
+            "log_a x - log_a y",
+            "log_ax-log_ay",
+            "loga x - loga y"
+        ],
+        "rightAliases": [
+            "log_a(x/y)",
+            "log_a x/y",
+            "loga(x/y)"
+        ],
+        "explanation": "Երկու նույն հիմքով լոգարիթմների տարբերությունը կարելի է գրել մեկ լոգարիթմով՝ քանորդով։",
+        "connectionHtml": "Սա քանորդի կանոնի հակառակ ուղղությունն է։",
+        "exampleHtml": "Օրինակ՝ lg20 − lg2 = lg10 = 1։"
+    },
+    {
+        "id": "powered-base-argument",
+        "group": "mixed",
+        "category": "Աստիճան հիմքում և ներսում",
+        "leftHtml": "log<sub>a<sup>m</sup></sub>(x<sup>n</sup>)",
+        "rightHtml": "n/m · log<sub>a</sub>x",
+        "plain": "log_(a^m)(x^n) = n/m · log_a x",
+        "leftAliases": [
+            "log_a^m(x^n)",
+            "log_(a^m)(x^n)",
+            "log_{a^m}(x^n)",
+            "loga^m x^n"
+        ],
+        "rightAliases": [
+            "n/m log_a x",
+            "(n/m)log_a x",
+            "n/m*log_a x",
+            "n/m·log_a x"
+        ],
+        "explanation": "Երբ հիմքն էլ է աստիճանով, փոխում ենք հիմքը դեպի a, իսկ x^n-ի n-ը դուրս է գալիս։",
+        "connectionHtml": "Գալիս է հիմքի փոխման և աստիճանի կանոններից։",
+        "exampleHtml": "Օրինակ՝ log<sub>4</sub>8 = log<sub>2²</sub>2³ = 3/2։"
+    },
+    {
+        "id": "powered-base-same-base",
+        "group": "mixed",
+        "category": "a աստիճան հիմքում",
+        "leftHtml": "log<sub>a<sup>m</sup></sub>(a<sup>n</sup>)",
+        "rightHtml": "n/m",
+        "plain": "log_(a^m)(a^n) = n/m",
+        "leftAliases": [
+            "log_(a^m)(a^n)",
+            "log_a^m(a^n)",
+            "log_{a^m}(a^n)",
+            "loga^m a^n"
+        ],
+        "rightAliases": [
+            "n/m",
+            "n / m"
+        ],
+        "explanation": "Եթե և՛ հիմքը, և՛ ներսի թիվը նույն a-ի աստիճաններ են, պատասխանը աստիճանների հարաբերությունն է։",
+        "connectionHtml": "Սա log<sub>a<sup>m</sup></sub>(x<sup>n</sup>) = n/m log<sub>a</sub>x կանոնի հատուկ դեպքն է, երբ x = a։",
+        "exampleHtml": "Օրինակ՝ log<sub>9</sub>27 = log<sub>3²</sub>3³ = 3/2։"
+    },
+    {
+        "id": "chain",
+        "group": "mixed",
+        "category": "Շղթայական կանոն",
+        "leftHtml": "log<sub>a</sub>b · log<sub>b</sub>c",
+        "rightHtml": "log<sub>a</sub>c",
+        "plain": "log_a b · log_b c = log_a c",
+        "leftAliases": [
+            "log_a b * log_b c",
+            "log_ab*log_bc",
+            "log_a b log_b c",
+            "log_ab log_bc",
+            "logₐb·log_bc"
+        ],
+        "rightAliases": [
+            "log_a c",
+            "log_ac",
+            "loga c",
+            "logₐc"
+        ],
+        "explanation": "Միջանկյալ b հիմքը կրճատվում է, ինչպես հիմքի փոխման կանոնում։",
+        "connectionHtml": "Գալիս է հիմքի փոխման կանոնից։ Օրինակ՝ log<sub>b</sub>c = log<sub>a</sub>c / log<sub>a</sub>b։"
+    },
+    {
+        "id": "multiplication-inverse",
+        "group": "base",
+        "category": "Փոխադարձություն",
+        "leftHtml": "log<sub>a</sub>x · log<sub>x</sub>a",
+        "rightHtml": "1",
+        "plain": "log_a x · log_x a = 1",
+        "leftAliases": [
+            "log_a x * log_x a",
+            "log_ax*log_xa",
+            "log_a x log_x a",
+            "log_ax log_xa"
+        ],
+        "rightAliases": [
+            "1",
+            "+1"
+        ],
+        "explanation": "logₐx և logₓa փոխադարձ թվեր են, ուստի արտադրյալը 1 է։",
+        "connectionHtml": "Գալիս է log<sub>a</sub>x = 1/log<sub>x</sub>a փոխադարձ հիմքերի կանոնից։"
+    },
+    {
+        "id": "number-to-log",
+        "group": "transform",
+        "category": "Թիվը log-ի տեսքով",
+        "leftHtml": "c",
+        "rightHtml": "log<sub>a</sub>(a<sup>c</sup>)",
+        "plain": "c = log_a(a^c)",
+        "leftAliases": [
+            "c"
+        ],
+        "rightAliases": [
+            "log_a(a^c)",
+            "log_a a^c",
+            "loga(a^c)"
+        ],
+        "explanation": "Ցանկացած թիվ կարելի է գրել որպես նույն հիմքով լոգարիթմ, եթե պետք է հավասարեցնել log-երին։",
+        "connectionHtml": "Գալիս է log<sub>a</sub>(a<sup>x</sup>) = x կանոնից։",
+        "exampleHtml": "Օրինակ՝ 3 = log<sub>2</sub>8, որովհետև 8 = 2³։"
+    },
+    {
+        "id": "log-equation-to-exponential",
+        "group": "solving",
+        "category": "log-ից աստիճանային",
+        "leftHtml": "log<sub>a</sub>x = c",
+        "rightHtml": "x = a<sup>c</sup>",
+        "plain": "log_a x = c ⇔ x = a^c",
+        "leftAliases": [
+            "log_a x = c",
+            "log_ax=c",
+            "loga x=c"
+        ],
+        "rightAliases": [
+            "x=a^c",
+            "x = a^c",
+            "a^c=x"
+        ],
+        "explanation": "Լոգարիթմային հավասարումը կարելի է անմիջապես գրել աստիճանային տեսքով։",
+        "connectionHtml": "Սա լոգարիթմի սահմանումն է՝ log<sub>a</sub>x = c ⇔ a<sup>c</sup> = x։"
+    },
+    {
+        "id": "same-log-equation",
+        "group": "solving",
+        "category": "Նույն հիմքով log-եր",
+        "leftHtml": "log<sub>a</sub>f(x) = log<sub>a</sub>g(x)",
+        "rightHtml": "f(x) = g(x)",
+        "plain": "log_a f(x) = log_a g(x) ⇒ f(x) = g(x)",
+        "leftAliases": [
+            "log_a f(x)=log_a g(x)",
+            "log_af(x)=log_ag(x)",
+            "loga f(x)=loga g(x)"
+        ],
+        "rightAliases": [
+            "f(x)=g(x)",
+            "fx=gx",
+            "f=g"
+        ],
+        "explanation": "Նույն հիմքով լոգարիթմները հավասար են, ուրեմն ներսի արտահայտություններն են հավասար՝ բայց պետք է ստուգել պայմանները։",
+        "connectionHtml": "Գալիս է այն փաստից, որ նույն թույլատրելի հիմքով log ֆունկցիան մեկարժեք է։",
+        "exampleHtml": "Պայմանները պարտադիր են՝ f(x)>0 և g(x)>0։"
     }
-  ];
+];
 
   const state = {
     round: [], currentIndex: 0, answered: false, correctCount: 0, wrongCount: 0,
@@ -268,7 +865,7 @@
       .replace(/ₐ/g, 'a').replace(/ₑ/g, 'e').replace(/ₓ/g, 'x')
       .replace(/⁰/g, '0').replace(/¹/g, '1').replace(/²/g, '2').replace(/³/g, '3').replace(/⁴/g, '4')
       .replace(/⁵/g, '5').replace(/⁶/g, '6').replace(/⁷/g, '7').replace(/⁸/g, '8').replace(/⁹/g, '9')
-      .replace(/ⁿ/g, 'n').replace(/ᵐ/g, 'm').replace(/ˣ/g, 'x').replace(/ᵧ/g, 'y')
+      .replace(/ⁿ/g, 'n').replace(/ᵐ/g, 'm').replace(/ᵏ/g, 'k').replace(/ᶜ/g, 'c').replace(/ˣ/g, 'x').replace(/ᵧ/g, 'y').replace(/⁻/g, '-')
       .replace(/_/g, '')
       .replace(/\s+/g, '')
       .replace(/\(([^()+\-/*^=]+)\)/g, '$1')
@@ -330,18 +927,24 @@
   function renderFormulas(group = 'all') {
     const rows = group === 'all' ? FORMULAS : FORMULAS.filter((formula) => formula.group === group);
     el.formulaCount.textContent = FORMULAS.length;
-    el.formulaGrid.innerHTML = rows.map((formula, index) => `
-      <article class="formula-card" data-group="${formula.group}">
+    el.formulaGrid.innerHTML = rows.map((formula, index) => {
+      const connection = formula.connectionHtml ? `<div class="formula-connection"><span>Կապ / որտեղից է գալիս</span><strong>${formula.connectionHtml}</strong></div>` : '';
+      const example = formula.exampleHtml ? `<div class="formula-example"><span>Օրինակ</span><strong>${formula.exampleHtml}</strong></div>` : '';
+      return `
+      <article class="formula-card ${formula.connectionHtml ? 'is-derived' : ''}" data-group="${formula.group}">
         <div class="formula-card-top">
           <h3>${String(index + 1).padStart(2, '0')} · ${formula.category}</h3>
           <button class="copy-formula" type="button" data-copy="${formula.plain.replace(/"/g, '&quot;')}">Copy</button>
         </div>
         <div class="formula-equation"><span>${formula.leftHtml}</span><span class="equal-sign">=</span><span>${formula.rightHtml}</span></div>
         <p>${formula.explanation}</p>
-      </article>`).join('');
+        ${connection}
+        ${example}
+      </article>`;
+    }).join('');
 
     el.cheatsheetBody.innerHTML = FORMULAS.map((formula) => `
-      <tr><td>${formula.leftHtml}</td><td>=</td><td>${formula.rightHtml}</td></tr>
+      <tr><td>${formula.leftHtml}</td><td>=</td><td>${formula.rightHtml}</td><td>${formula.connectionHtml ? 'Կապ ունի' : 'Հիմնական'}</td></tr>
     `).join('');
   }
 

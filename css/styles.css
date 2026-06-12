@@ -347,6 +347,33 @@ tr:last-child td { border-bottom: 0; }
 .equal-sign { color: var(--primary); font-size: 1.8rem; }
 .formula-card p { margin: 12px 0 0; }
 
+.formula-card.is-derived {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-soft) 92%, transparent), color-mix(in srgb, var(--primary-soft) 45%, transparent));
+}
+.formula-connection, .formula-example {
+  display: grid;
+  gap: 5px;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(127,127,127,0.045);
+  line-height: 1.55;
+}
+.formula-connection span, .formula-example span {
+  color: var(--primary);
+  font-size: 0.76rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.formula-connection strong, .formula-example strong {
+  color: var(--text);
+  font-weight: 850;
+}
+.formula-example { background: var(--primary-soft); }
+
+
 .example-card span, .mistake-card span { color: var(--primary); font-weight: 950; }
 .example-card ol { margin: 0; padding-left: 1.25rem; }
 .mistake-card span { color: var(--danger); font-size: 1.3rem; }

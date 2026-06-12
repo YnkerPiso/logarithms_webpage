@@ -41,7 +41,7 @@
               Լոգարիթմը պատասխանում է հարցին․ <strong>ինչ աստիճանի</strong> պետք է բարձրացնել հիմքը, որպեսզի ստանանք տրված թիվը։ Այս էջում կա բացատրություն, լրիվ բանաձևերի բանկ, հաշվիչ և քարտերի խաղ՝ բանաձևերը հիշելու համար։
             </p>
             <div class="hero-actions">
-              <a class="primary-btn" href="#formulas">Տեսնել 20 բանաձևերը</a>
+              <a class="primary-btn" href="#formulas">Տեսնել բանաձևերը</a>
               <a class="ghost-btn" href="#game">Խաղալ քարտերով</a>
               <a class="ghost-btn" href="#calculator">Բացել հաշվիչը</a>
             </div>
@@ -151,8 +151,8 @@
         <div class="section-head with-action">
           <div>
             <p class="eyebrow">Բանաձևերի բանկ</p>
-            <h2>20 կարևոր բանաձև</h2>
-            <p>Սրանք նույն բանաձևերն են, որոնք օգտագործվում են քարտերի խաղում։ Ամեն քարտի մի կողմը ձախ մասն է, մյուս կողմը՝ աջ մասը։</p>
+            <h2>Կարևոր բանաձևեր և շատ օգտագործվող ձևեր</h2>
+            <p>Ավելացրել եմ նաև այն շատ օգտագործվող ձևերը, որոնք իրականում գալիս են հիմնական կանոններից։ Յուրաքանչյուր քարտի վրա երևում է նաև կապը՝ որ բանաձևից է ստացվում։</p>
           </div>
           <button id="copyAllFormulas" class="ghost-btn" type="button">Copy բոլորը</button>
         </div>
@@ -168,6 +168,8 @@
           <button class="filter-btn" type="button" data-category="rules">Կանոններ</button>
           <button class="filter-btn" type="button" data-category="base">Հիմքի փոխում</button>
           <button class="filter-btn" type="button" data-category="mixed">Խառը</button>
+          <button class="filter-btn" type="button" data-category="transform">Փոխակերպումներ</button>
+          <button class="filter-btn" type="button" data-category="solving">Հավասարումներ</button>
         </div>
 
         <div id="formulaGrid" class="formula-grid"></div>
@@ -316,6 +318,7 @@
         </div>
         <div class="table-wrap compact-table">
           <table>
+            <thead><tr><th>Ձախ կողմ</th><th></th><th>Աջ կողմ</th><th>Տեսակ</th></tr></thead>
             <tbody id="cheatsheetBody"></tbody>
           </table>
         </div>
@@ -341,6 +344,8 @@
             <option value="8">8 քարտ</option>
             <option value="12">12 քարտ</option>
             <option value="16">16 քարտ</option>
+            <option value="24">24 քարտ</option>
+            <option value="32">32 քարտ</option>
           </select>
           <label class="toggle-line"><input id="hardMode" type="checkbox" /> <span>Խիստ ստուգում</span></label>
           <button id="startBtn" class="primary-btn" type="button">Սկսել նոր խաղ</button>
